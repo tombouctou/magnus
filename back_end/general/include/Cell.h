@@ -80,7 +80,7 @@ public:
   void writeContents(ostream& ostr) const;
    
   
-  inline T getContents() {
+  T getContents() {
         #if ( SAFETY > 0 )
                 if (contents)
                     return *contents;

@@ -172,13 +172,13 @@ struct tc_str_vars       *tc_pvar;
 
 	if ((tcout = fopen(FILE_NAME, "r")) == (FILE *) 0) {
                 yyerror(7);
-                return;
+                return 0;
         }
 	fscanf(tcout,"%d %d", &c_tab, &info_space);
 	if (c_tab + info_space > Workspace) {
 		printf("workspace is inadequate for restoring, restoring failed.\n");
 		fclose(tcout);
-		return;
+		return 0;
 	}
 	init_pointer(tc_pvar);
 	free_space_r();
@@ -371,7 +371,7 @@ struct tc_str_vars       *tc_pvar;
 	for (p = RELATORS; p < PDL_ROW; p++)
 		fscanf(tcout,"%d",p); 
 	fclose(tcout);
-	return;
+	return 0;
 }
 init_pointer(tc_pvar)
 struct tc_str_vars       *tc_pvar;

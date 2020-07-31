@@ -401,8 +401,8 @@ public:
 	    Chars def = Chars());
 
   SMSubgroup(SMFPGroup& G)
-    : AlgebraicObject(""), theGroup(G), theSubgroup( *((SGofFreeGroup*)0) ),
-      sic( oid() ), theSCM( 0 )
+    : AlgebraicObject(""), theGroup(G), theSubgroup(nullptr),
+      sic( oid() ), theSCM( nullptr )
   { }
   //Bogus ctor; see `But no' comment in Menu.h
 
@@ -464,8 +464,7 @@ public:
   SIC sic;
 
 private:
-
-  const SGofFreeGroup theSubgroup;
+  SGofFreeGroup theSubgroup;
 
   SMFPGroup& theGroup;
 

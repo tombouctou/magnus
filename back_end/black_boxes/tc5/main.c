@@ -791,7 +791,7 @@ char c;
 	int i; 
 	for(i = 0; i <= Gen_no; i++) 
 		if (c == Gen_st[i].gen || INVERSE(c) == Gen_st[i].gen) 
-			return; 
+			return 0; 
 	fprintf(fout,"%c is not a generator\n",c);
 	exit(1);
 } 
@@ -850,7 +850,7 @@ Rel_stk_type    *ptr;
     for(;;) {
         if (exp1 <= 1) {
                 ptr->exp = exp1;
-                return;
+                return 0;
         }
 /*-exp1- is a possible exponent if it divides the length */
         nbasel = baslen / exp1;
@@ -868,7 +868,7 @@ Rel_stk_type    *ptr;
         	}
 /*found an exponent */
         	ptr->exp = exp1;
-        	return;
+        	return 0;
 	}
 /* try another exponent */
 TryAnother:   ;
@@ -964,7 +964,7 @@ add_relators()
 		p->next = rel_pt;
 	} else
 		Relators = rel_pt;
-	return;
+	return 0;
 }
 add_sg()
 {
@@ -974,7 +974,7 @@ add_sg()
         	p->next = rel_pt;
 	} else 
 		S_gens = rel_pt;
-        return;
+        return 0;
 }
 tc_add_cc(n, tc_pvar)
 int	n;
@@ -1028,6 +1028,6 @@ struct  tc_str_vars     *tc_pvar;
                tc_text(12, tc_pvar);
                INDEX = TRUE;
 	}
-	return;
+	return 0;
 }	
 		

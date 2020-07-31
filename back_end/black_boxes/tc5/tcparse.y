@@ -32,19 +32,19 @@ words:	  ';'  { /* no words */
                 NumOfWord = 0;
                 Pt2Word = (Rel_stk_type *) 0;
                 init_gen_stk(); /* initialize generator stack */
-                return;
+                return 0;
                           }
 	| ordwords ';' {
                 NumOfWord = numb;
                 Pt2Word = rel_pt;
                 init_gen_stk(); /* initialize generator stack */
-                return;
+                return 0;
                 }
 	| numwords ';' {
                 NumOfWord = numb;
                 Pt2Word = rel_pt;
                 init_gen_stk(); /* initialize generator stack */
-                return;
+                return 0;
                 }
         ;
 ordwords: word {  /* get word one by one.  */

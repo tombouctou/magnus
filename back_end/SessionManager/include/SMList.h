@@ -253,7 +253,7 @@ public:
   //                                                                     //
   /////////////////////////////////////////////////////////////////////////
   
-  static const char* type( )  { return theType.s; } 
+  static const char* type( )  { return theType.s; }
   
   const char* typeID( ) const { return type(); };        // overrides SMObject
   
@@ -286,5 +286,6 @@ protected:
 
 };
 
+template <typename T> SMListType<T> SMList<T>::theType = SMListType<T>();
 
 #endif

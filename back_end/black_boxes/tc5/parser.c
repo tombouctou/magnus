@@ -182,14 +182,14 @@ int 	c;
 				if ((c=yylex()) == TOKEN_INT) {
 					ch[2] = yylval.vali;
 					if ((c=yylex()) == ';' || c == '\n')
-						return;
+						return 0;
 					else
 						ExecErrorDtm;
 				} else 
 					ExecErrorInt;
 			else if (c == ';' || c == '\n') {
 				ch[2] = 1;
-				return;
+				return 0;
 			} else
 				ExecErrorDtm;
 		} else
@@ -197,7 +197,7 @@ int 	c;
 	else if (c == ';' || c == '\n') {
 		ch[1] = ch[0];
 		ch[2] = 1;
-		return;
+		return 0;
 	} else
 		execerror("syntax error", "");
 	
@@ -211,7 +211,7 @@ int	c;
 		Rcn = 0;
                 RcStop = 0;
                 RcDesire = 0;
-                return; 
+                return 0; 
 	} else if (c == TOKEN_INT) {
 		Rcn = yylval.vali;
 		if((c=yylex()) == ',')
@@ -221,14 +221,14 @@ int	c;
 					if ((c=yylex()) == TOKEN_INT) {
 						RcDesire = yylval.vali;
 						if ((c=yylex()) == ';' || c == '\n')
-							return;
+							return 0;
 						else
 							ExecErrorDtm;
 					} else 
 						ExecErrorInt;
 				else if (c == ';' || c == '\n') {
 					RcDesire = 0;
-					return;
+					return 0;
 				} else
 					ExecErrorDtm;
 			} else
@@ -236,7 +236,7 @@ int	c;
 		else if (c == ';' || c == '\n') {
 			RcStop = 0;
 			RcDesire = 0;
-			return;
+			return 0;
 		} else
 			execerror("syntax error", c);
 	}	
@@ -303,7 +303,7 @@ int	l;
 	
 	c = yylex();
 	if (c == ';' || c == '\n')
-		return; 
+		return 0; 
 	l = 0;
 	while (c == TOKEN_INT) { 
 		n = yylval.vali;
@@ -334,7 +334,7 @@ int	l;
 			else
 				Sgen_no -= l;
                         Del_l = 0;
-			return;
+			return 0;
 		} else
 			execerror("syntax error", "");
 	}
@@ -400,7 +400,7 @@ int	c;
 			put_gen();
 		}
 		if((c=yylex()) == ';')
-			return;
+			return 0;
 		else
 			ExecErrorDtm;
 	}		
@@ -421,7 +421,7 @@ int	c;
 	}
 	if (c == ';') {
 		put_gen();
-		return;
+		return 0;
 	} else
 		ExecErrorDtm;
 }
@@ -436,7 +436,7 @@ Rel_stk_type *pt_new;
                 p->next = pt_new;
         } else
 		*pt_ori = pt_new;
-	return;
+	return 0;
 }
 
 follow_tw()
@@ -446,13 +446,13 @@ follow_tw()
 	
 	c = yylex();
 	if (c == ';')
-		return; 
+		return 0; 
 	if (c == TOKEN_INT) { 
 		Twn = yylval.vali;
 		if ((c=yylex()) == ',') {
 			yyparse();
 			Tw_l = 1;
-			return;
+			return 0;
 		} 
 	} else
 		execerror("syntax error", "");
@@ -473,7 +473,7 @@ int  c;
 	*p = '\0';
 	if ((strcmp(sbuf, "stdin")) == 0) {
 		if (fin == stdin)
-			return;
+			return 0;
 		fclose(fin);
 		fin = stdin;
 	} else if ((ftmp = fopen(sbuf,"r")) == NULL) 
@@ -486,7 +486,7 @@ int  c;
 			fin = ftmp;
 		}
 	}
-	return;
+	return 0;
 }
 
 follow_ao()
@@ -505,7 +505,7 @@ FILE	*ftmp;
 	*p = '\0';
 	if ((strcmp(sbuf, "stdout")) == 0) {
 		if (fout == stdout)
-			return; 
+			return 0; 
 		fclose(fout);
 		fout = stdout;
 	} else if ((ftmp = fopen(sbuf,"w")) == NULL) 
@@ -518,7 +518,7 @@ FILE	*ftmp;
 			fout = ftmp;
 		}
 	}
-	return;
+	return 0;
 }
 follow_wo()
 {
@@ -535,13 +535,13 @@ int 	c;
 			if ((c = yylex()) == TOKEN_GEN) {
 				Page_strategy = yylval.gen[0];
 				if ((c = yylex()) == ';')
-					return;
+					return 0;
 				else
 					ExecErrorDtm;
 			} else
 				execerror("syntax error, expect a letter","");
 		} else if (c == ';')
-			return;
+			return 0;
 		else
 			ExecErrorDtm;
 	} else

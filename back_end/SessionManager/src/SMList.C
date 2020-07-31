@@ -21,6 +21,7 @@
 #include <sys/mman.h>
 #include <fcntl.h>
 
+
 //--------------------------------------------------------------------------//
 //------------------------------- SMList  ----------------------------------//
 //--------------------------------------------------------------------------//
@@ -310,7 +311,7 @@ LIC::status_type::status_type( int arg_s ):
 			      PROT_READ | PROT_WRITE, MAP_SHARED, 
 			      status_file, 0); 
     
-  if ( status_buffer < 0 )
+  if ( status_buffer == nullptr )
     error("LIC::status_type::status_type( int s ) :"
 	  "error couldn't map the file.");
 }
@@ -373,15 +374,9 @@ template class SMList<Word>;
 template class SMList<Subgroup>;
 template class SMList<Map>;
 
-//@njz:
-//SMListType<Word> SMList<Word>::theType;
-//SMListType<Map> SMList<Map>::theType;
-//SMListType<Subgroup> SMList<Subgroup>::theType;
-//
-//EnProbType<Word> EnumeratorProblem<Word>::theType;
-//EnProbType<Map> EnumeratorProblem<Map>::theType;
-//EnProbType<Subgroup> EnumeratorProblem<Subgroup>::theType;
-//EnProbType<NoType> EnumeratorProblem<NoType>::theType;
+
+
+/*
 
 template <> SMListType<Word> SMList<Word>::theType = SMListType<Word>();
 template <> SMListType<Map> SMList<Map>::theType = SMListType<Map>();
@@ -391,4 +386,5 @@ template <> EnProbType<Word> EnumeratorProblem<Word>::theType = EnProbType<Word>
 template <> EnProbType<Map> EnumeratorProblem<Map>::theType = EnProbType<Map>();
 template <> EnProbType<Subgroup> EnumeratorProblem<Subgroup>::theType = EnProbType<Subgroup>();
 template <> EnProbType<NoType> EnumeratorProblem<NoType>::theType = EnProbType<NoType>();
+ */
 //

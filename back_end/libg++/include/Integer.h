@@ -206,8 +206,8 @@ public:
   long		  as_long() const { return Itolong(rep); }
   double	  as_double() const;
 
-  friend char*    Itoa(const Integer& x, int base = 10, int width = 0);
-  friend Integer  atoI(const char* s, int base = 10);
+  friend char*    Itoa(const Integer& x, int base, int width);
+  friend Integer  atoI(const char* s, int base);
   void		  printon(ostream& s, int base = 10, int width = 0) const;
   
   friend istream& operator >> (istream& s, Integer& y);

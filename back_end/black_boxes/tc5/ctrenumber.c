@@ -29,12 +29,12 @@ register Int    *ct;
 /* subroutine to change the coset numbers into their addresses.   */
 
 	if (STDCT == FALSE)
-		return;
+		return 0;
 	ct = COSET_TABLE;
         p = &CT(NEXTDF,1);
         for (ct = &CT(COSET1,1); ct < p; ct++)
                 *ct = (*ct) ? Num2Addr(*ct) :0;
 	STDCT = FALSE;
-   	return;
+   	return 0;
 }
 /* File End */

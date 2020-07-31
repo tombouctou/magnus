@@ -259,11 +259,11 @@ Int    order;
 */
 	if (INDEX1) {
 		fprintf(fout,"INDEX 1\n");
-		return;
+		return 0;
 	}
 	if (CTFLG == 0) {
 		fprintf(fout,"NO COSET TABLE\n");
-		return;
+		return 0;
 	}
 	if (STDCT == 0) {
 /* get the standard coset table.  */

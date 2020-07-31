@@ -411,11 +411,11 @@ void QEqnSolutionsInFreeGroup::buildSolutionsOfOneVertex(const Word& w)
   ListIterator< ListOf<SingularEndo> > I(solutions);
 
   while( ! I.done() ) {
-    Endomorphism solution = rootEndo | I.value().makeEndomorphism(theGroup);
-    solution.reduceGenImages();
-    if( !setOfBasicSolutions.contains( solution ) ) {
-      theBasicSolutions.append(solution);
-      setOfBasicSolutions |= solution;
+    Endomorphism sln = rootEndo | I.value().makeEndomorphism(theGroup);
+      sln.reduceGenImages();
+    if( !setOfBasicSolutions.contains( sln ) ) {
+      theBasicSolutions.append(sln);
+      setOfBasicSolutions |= sln;
     }
     I.next();
   }
@@ -1050,11 +1050,11 @@ Chars checkEquation(const FreeGroup& G, const Word& equation, int numOfVar) {
 
   for(int i = 0; i<numOfVar; i++)
     if( occurrences[i] != 2 && occurrences[i] != 0) {
-      delete occurrences;
+      delete[] occurrences;
       return "Equation is not quadratic.";
     }
 
-  delete occurrences;
+  delete[] occurrences;
   return Chars();
 }
 

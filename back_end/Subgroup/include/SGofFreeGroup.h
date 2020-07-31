@@ -441,6 +441,8 @@ public:
   //                                                   //
   ///////////////////////////////////////////////////////
 
+    SGofFreeGroup( SGofFreeGroupRep* newrep ) : GenericObject(newrep) { }
+
 protected:
 
 
@@ -460,8 +462,6 @@ protected:
   // Special wrapping constructor to wrap new representations (returned
   // by eg. delegated methods) and for GenericObject initialisation by derived
   // classes:
-
-  SGofFreeGroup( SGofFreeGroupRep* newrep ) : GenericObject(newrep) { }
 
 };
 

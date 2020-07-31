@@ -17,6 +17,7 @@
 //
 
 
+#include "DArray.h"
 #include "Matrix.h"
 #include "Int2.h"
 
@@ -70,7 +71,7 @@ MatrixRep<R>& MatrixRep<R>::operator *= ( const MatrixRep& M )
   MatrixRow<R>* tmpArray = this->theArray;
   int tmpRowBegin = this->rowBegin;
   int tmpColBegin = this->colBegin;
-  makeArray(this->height,this->width);
+  this->makeArray(this->height,this->width);
   for( int i = 0; i < this->height; i++ )
     for( int j = 0; j < M.width; j++ ) {
       R amount = 0;

@@ -578,7 +578,7 @@ void GenericComplexProperty::read(istream& istr, bool extraDetails)
 
 	readFrom(i);
 
-	delete buf;
+	delete[] buf;
       }
     }
   }

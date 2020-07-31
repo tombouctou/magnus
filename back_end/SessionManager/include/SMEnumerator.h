@@ -263,4 +263,6 @@ protected:
   AlgebraicObject& theParent;							    
 };
 
+template <typename T> EnProbType<T> EnumeratorProblem<T>::theType = EnProbType<T>();
+
 #endif

@@ -274,7 +274,7 @@ char	*tc_save();
                 tc_ctrenumber(tc_pvar);
                 tc_mst(tc_pvar); /* construct ms tree. */
                 tc_print_ct(-coset,coset,1,tc_pvar);
-                return;
+                return 0;
         }
 	if (INDEX == 0) 
 /* resume the enumeration.   */
@@ -289,7 +289,7 @@ char	*tc_save();
 				if (coset == stop) {
                 			fprintf(fout,"REACH STOP %d\n", stop);
 					unlink(FILE_NAME);
-                			return;
+                			return 0;
         			}
 				continue;
 			}
@@ -300,11 +300,11 @@ char	*tc_save();
 			tc_ctrenumber(tc_pvar);
 			tc_mst(tc_pvar); /* construct ms tree. */
 			tc_print_ct(-coset,coset,1,tc_pvar);
-			return;
+			return 0;
 	}
 	if (coset == stop) {
 		fprintf(fout,"REACH STOP %d\n", stop);
-		return;
+		return 0;
 	}
 	}
 }

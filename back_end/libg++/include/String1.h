@@ -115,7 +115,6 @@ class String
   friend class      SubString;
 
 protected:
-  StrRep*           rep;   // Strings are pointers to their representations
 
 // some helper functions
 
@@ -128,6 +127,7 @@ protected:
 
 public:
 
+  StrRep*           rep;   // Strings are pointers to their representations
 // constructors & assignment
 
                     String();
@@ -323,9 +323,9 @@ public:
   //                        const Regex&  sep);
 
   friend String     common_prefix(const String& x, const String& y, 
-                                  int startpos = 0);
+                                  int startpos);
   friend String     common_suffix(const String& x, const String& y, 
-                                  int startpos = -1);
+                                  int startpos);
   friend String     replicate(char        c, int n);
   friend String     replicate(const String&     y, int n);
   friend String     join(String src[], int n, const String& sep);
@@ -365,8 +365,8 @@ public:
   friend istream&   operator>>(istream& s, String& x);
 
   friend int        readline(istream& s, String& x, 
-                             char terminator = '\n',
-                             int discard_terminator = 1);
+                             char terminator,
+                             int discard_terminator);
 
 // status
 
